@@ -1,4 +1,4 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

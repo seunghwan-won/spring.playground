@@ -1,5 +1,7 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.handler;
 
+import cc.ewqr.spring.playground.model.ErrorResult;
+import cc.ewqr.spring.playground.model.FieldValidationError;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -7,9 +9,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {

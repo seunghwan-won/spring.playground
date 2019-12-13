@@ -1,4 +1,4 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.model;
 
 import java.util.ArrayList;
 import java.util.List;

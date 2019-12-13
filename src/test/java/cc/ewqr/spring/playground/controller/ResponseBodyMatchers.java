@@ -1,5 +1,7 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.controller;
 
+import cc.ewqr.spring.playground.model.ErrorResult;
+import cc.ewqr.spring.playground.model.FieldValidationError;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.test.web.servlet.ResultMatcher;
 

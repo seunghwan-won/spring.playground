@@ -1,6 +1,9 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.controller;
 
-import cc.ewqr.spring.playground.controller.RegisterRestController;
+import cc.ewqr.spring.playground.model.ErrorResult;
+import cc.ewqr.spring.playground.repository.RegisterUseCase;
+import cc.ewqr.spring.playground.model.User;
+import cc.ewqr.spring.playground.model.UserResource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,7 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static cc.ewqr.spring.playground.ResponseBodyMatchers.responseBody;
+import static cc.ewqr.spring.playground.controller.ResponseBodyMatchers.responseBody;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;

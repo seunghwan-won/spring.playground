@@ -1,8 +1,8 @@
 package cc.ewqr.spring.playground.controller;
 
-import cc.ewqr.spring.playground.RegisterUseCase;
-import cc.ewqr.spring.playground.User;
-import cc.ewqr.spring.playground.UserResource;
+import cc.ewqr.spring.playground.repository.RegisterUseCase;
+import cc.ewqr.spring.playground.model.User;
+import cc.ewqr.spring.playground.model.UserResource;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

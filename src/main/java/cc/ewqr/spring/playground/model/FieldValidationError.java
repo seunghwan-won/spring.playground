@@ -1,4 +1,4 @@
-package cc.ewqr.spring.playground;
+package cc.ewqr.spring.playground.model;
 
 public class FieldValidationError {
     private String field;
