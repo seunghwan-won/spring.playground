@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/java,macos,maven,windows,intellij
-# Edit at https://www.gitignore.io/?templates=java,macos,maven,windows,intellij
+# Created by https://www.gitignore.io/api/java,macos,maven,gradle,windows,intellij,netbeans
+# Edit at https://www.gitignore.io/?templates=java,macos,maven,gradle,windows,intellij,netbeans
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
@@ -156,6 +156,16 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
 
+### NetBeans ###
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -182,4 +192,22 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/java,macos,maven,windows,intellij
+### Gradle ###
+.gradle
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+### Gradle Patch ###
+**/build/
+
+# End of https://www.gitignore.io/api/java,macos,maven,gradle,windows,intellij,netbeans
