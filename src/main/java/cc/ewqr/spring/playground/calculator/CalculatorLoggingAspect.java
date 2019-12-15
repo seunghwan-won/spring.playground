@@ -12,7 +12,8 @@ public class CalculatorLoggingAspect {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorLoggingAspect.class);
 
     @Before("execution(* ArithmeticCalculator.add(..))")
-    public void beforeLog() {
+    public int beforeLog() {
         logger.debug("The method add() begins");
+        return 2;
     }
 }
