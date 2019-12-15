@@ -8,3 +8,4 @@
 - [Junit5(jupiter)로 MVC중 C를 어떻게 테스트 할 수 있을까](https://reflectoring.io/spring-boot-web-controller-test/)
 - aop 연습 (책 : 스프링5 레시피 4판 2-13~ 
   - aop는 어떻게 테스트 할 수 있을까?
+    - 그냥 POJO 테스트하듯이 해야하나?
