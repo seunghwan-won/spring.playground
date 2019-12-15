@@ -5,4 +5,6 @@
 - 연습을 끝 마치면 마스터 브런치에 리베이스를 하고 푸쉬
 
 ## 목록
--  [Junit5(jupiter)로 MVC중 C를 어떻게 테스트 할 수 있을까](https://reflectoring.io/spring-boot-web-controller-test/)
+- [Junit5(jupiter)로 MVC중 C를 어떻게 테스트 할 수 있을까](https://reflectoring.io/spring-boot-web-controller-test/)
+- aop 연습
+  - aop는 어떻게 테스트 할 수 있을까?
