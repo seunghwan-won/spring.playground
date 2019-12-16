@@ -9,7 +9,10 @@ import javax.validation.Valid;
 
 @RestController
 public class RegisterRestController {
-    private final RegisterUseCase registerUseCase;
+    private  RegisterUseCase registerUseCase;
+
+    public RegisterRestController() {
+    }
 
     public RegisterRestController(RegisterUseCase registerUseCase) {
         this.registerUseCase = registerUseCase;
