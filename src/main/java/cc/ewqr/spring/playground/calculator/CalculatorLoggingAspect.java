@@ -32,6 +32,11 @@ public class CalculatorLoggingAspect implements Ordered {
         logger.info("The method " + joinPoint.getSignature().getName() + "() ends");
     }
 
+    @After("execution(* cc.ewqr.spring.playground.calculator.*Calculator.*(..))" + " && this(counter)")
+    public void increaseCount(Counter counter) {
+        counter.increase();
+    }
+
     @AfterReturning(pointcut = "cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()", returning = "result")
     private void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info("The method {}() ends with {}", joinPoint.getSignature().getName(), result);

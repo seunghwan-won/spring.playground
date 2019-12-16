@@ -15,6 +15,7 @@ public class AOPTest {
     MaxCalculator maxCalculator;
     MinCalculator minCalculator;
 
+
     @BeforeEach
     void setUp() {
         arithmeticCalculator = context.getBean("arithmeticCalculator", ArithmeticCalculator.class);
@@ -45,7 +46,13 @@ public class AOPTest {
 
     @Test
     void minTest() {
+        MinCalculator minCalculator = (MinCalculator) arithmeticCalculator;
+        Counter arithmeticCounter = (Counter) arithmeticCalculator;
         assertEquals(2, minCalculator.min(10, 2), 0.1);
+        assertEquals(2, minCalculator.min(10, 2), 0.1);
+        System.out.println(arithmeticCounter.getCount());
+        System.out.println(arithmeticCounter.getCount());
+
     }
 
     @Test
@@ -54,5 +61,18 @@ public class AOPTest {
         MinCalculator minCalculator = (MinCalculator) arithmeticCalculator;
         assertEquals(10, maxCalculator.max(10, 2), 0.1);
         assertEquals(2, minCalculator.min(10, 2), 0.1);
+    }
+
+    @Test
+    void arithmeticAndUnitCalculatorCounterTest() {
+        MinCalculator minCalculator = (MinCalculator) arithmeticCalculator;
+        MaxCalculator maxCalculator = (MaxCalculator) arithmeticCalculator;
+        Counter arithmeticCounter = (Counter) arithmeticCalculator;
+        assertEquals(2, minCalculator.min(10, 2), 0.1);
+        assertEquals(10, maxCalculator.max(10, 2), 0.1);
+        System.out.println(arithmeticCounter.getCount());
+        assertEquals(1, minCalculator.min(1, 2), 0.1);
+        assertEquals(4, maxCalculator.max(3, 4), 0.1);
+        System.out.println(arithmeticCounter.getCount());
     }
 }

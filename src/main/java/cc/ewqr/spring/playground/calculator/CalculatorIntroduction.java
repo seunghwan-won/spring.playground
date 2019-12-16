@@ -1,5 +1,6 @@
 package cc.ewqr.spring.playground.calculator;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclareParents;
 import org.springframework.stereotype.Component;
@@ -18,4 +19,10 @@ public class CalculatorIntroduction {
             defaultImpl = MinCalculatorImplement.class
     )
     public MinCalculator minCalculator;
+
+    @DeclareParents(
+            value = "cc.ewqr.spring.playground.calculator.*CalculatorImplement",
+            defaultImpl = CountImplement.class
+    )
+    public Counter counter;
 }
