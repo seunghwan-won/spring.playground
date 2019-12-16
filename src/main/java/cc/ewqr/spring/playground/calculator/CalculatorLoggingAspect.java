@@ -14,9 +14,16 @@ import java.util.Arrays;
 public class CalculatorLoggingAspect {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorLoggingAspect.class);
 
-    @Before("execution(* ArithmeticCalculator.add(..))")
-    public void beforeLog() {
+    @Before("execution(* *.*(..))")
+    public void logJoinPoint(JoinPoint joinPoint) {
         logger.info("The method add() begins");
+        logger.info("Join point kind : {}", joinPoint.getKind());
+        logger.info("Signature declaring type : {}", joinPoint.getSignature().getDeclaringTypeName());
+        logger.info("Signature name : {}", joinPoint.getSignature().getName());
+        logger.info("Arguments : {}", joinPoint.getArgs());
+        logger.info("Target class : {}", joinPoint.getTarget().getClass().getName());
+        logger.info("This class : {}", joinPoint.getThis().getClass().getName());
+
     }
 
     @Before("execution(* *.*(..))")
@@ -43,7 +50,7 @@ public class CalculatorLoggingAspect {
             Object result = pjp.proceed();
             logger.info("The method {}() ends with ", pjp.getSignature().getName(), result);
             return result;
-        } catch (IllegalArgumentException e ) {
+        } catch (IllegalArgumentException e) {
             logger.error("Illegal argument {} in {}()", Arrays.toString(pjp.getArgs()), pjp.getSignature().getName());
             throw e;
         }
