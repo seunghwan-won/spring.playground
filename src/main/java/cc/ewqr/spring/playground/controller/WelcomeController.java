@@ -1,6 +1,5 @@
 package cc.ewqr.spring.playground.controller;
 
-import cc.ewqr.spring.playground.model.UserResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

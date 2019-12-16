@@ -43,7 +43,6 @@ public class RegisterRestControllerTest {
 
     private void return200(UserResource user) throws Exception {
         mockMvc.perform(post("/forums/42/register", 42L)
-                .contentType("application/json")
                 .param("sendWelcomeEmail", "true")
                 .content(objectMapper.writeValueAsString(user)))
                 .andExpect(status().isOk());
