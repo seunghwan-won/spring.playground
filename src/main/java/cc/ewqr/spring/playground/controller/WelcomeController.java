@@ -11,9 +11,10 @@ import java.util.Date;
 @RequestMapping("/welcome")
 public class WelcomeController {
     @RequestMapping(method = RequestMethod.GET)
-    public String welcome(Model model) {
+    public String welcome(Model model) throws InterruptedException {
         Date today = new Date();
         model.addAttribute("today", today);
+        Thread.sleep(1999);
         return "welcome";
     }
 
