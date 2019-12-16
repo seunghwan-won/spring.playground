@@ -15,7 +15,11 @@ import java.util.Arrays;
 public class CalculatorLoggingAspect implements Ordered {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorLoggingAspect.class);
 
-    @Before("execution(* *.*(..))")
+    @Pointcut("execution(* *.*(..))")
+    private void loggingOperation() {
+    }
+
+    @Before("loggingOperation()")
     public void logJoinPoint(JoinPoint joinPoint) {
         logger.info("The method add() begins");
         logger.info("Join point kind : {}", joinPoint.getKind());
@@ -27,18 +31,18 @@ public class CalculatorLoggingAspect implements Ordered {
 
     }
 
-    @Before("execution(* *.*(..))")
+    @Before("loggingOperation()")
     public void logBefore(JoinPoint joinPoint) {
         logger.info("The method " + joinPoint.getSignature().getName()
                 + "() begins with " + Arrays.toString(joinPoint.getArgs()));
     }
 
-    @After("execution(* *.*(..))")
+    @After("loggingOperation()")
     public void logAfter(JoinPoint joinPoint) {
         logger.info("The method " + joinPoint.getSignature().getName() + "() ends");
     }
 
-    @AfterReturning(pointcut = "execution(* *.*(..))", returning = "result")
+    @AfterReturning(pointcut = "loggingOperation()", returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info("The method {}() ends with {}", joinPoint.getSignature().getName(), result);
     }
