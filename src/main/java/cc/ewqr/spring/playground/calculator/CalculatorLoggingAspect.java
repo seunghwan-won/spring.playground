@@ -5,13 +5,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
 @Component
-public class CalculatorLoggingAspect {
+public class CalculatorLoggingAspect implements Ordered {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorLoggingAspect.class);
 
     @Before("execution(* *.*(..))")
@@ -56,4 +57,8 @@ public class CalculatorLoggingAspect {
         }
     }
 
+    @Override
+    public int getOrder() {
+        return 1;
+    }
 }
