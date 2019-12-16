@@ -10,3 +10,4 @@
   - aop는 어떻게 테스트 할 수 있을까?
     - 그냥 POJO 테스트하듯이 해야하나?
 - Interceptor
+- locale
