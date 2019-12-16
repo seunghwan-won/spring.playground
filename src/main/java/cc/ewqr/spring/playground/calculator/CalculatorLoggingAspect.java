@@ -15,12 +15,8 @@ import java.util.Arrays;
 public class CalculatorLoggingAspect implements Ordered {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorLoggingAspect.class);
 
-    @Pointcut("execution(* *.*(..))")
-    private void loggingOperation() {
-    }
-
-    @Before("loggingOperation()")
-    public void logJoinPoint(JoinPoint joinPoint) {
+    @Before("cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()")
+    private void logJoinPoint(JoinPoint joinPoint) {
         logger.info("The method add() begins");
         logger.info("Join point kind : {}", joinPoint.getKind());
         logger.info("Signature declaring type : {}", joinPoint.getSignature().getDeclaringTypeName());
@@ -31,24 +27,18 @@ public class CalculatorLoggingAspect implements Ordered {
 
     }
 
-    @Before("loggingOperation()")
-    public void logBefore(JoinPoint joinPoint) {
-        logger.info("The method " + joinPoint.getSignature().getName()
-                + "() begins with " + Arrays.toString(joinPoint.getArgs()));
-    }
-
-    @After("loggingOperation()")
-    public void logAfter(JoinPoint joinPoint) {
+    @After("cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()")
+    private void logAfter(JoinPoint joinPoint) {
         logger.info("The method " + joinPoint.getSignature().getName() + "() ends");
     }
 
-    @AfterReturning(pointcut = "loggingOperation()", returning = "result")
-    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+    @AfterReturning(pointcut = "cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()", returning = "result")
+    private void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info("The method {}() ends with {}", joinPoint.getSignature().getName(), result);
     }
 
-    @Around("execution(* *.*(..))")
-    public Object logAround(ProceedingJoinPoint pjp) throws Throwable {
+    @Around("cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()")
+    private Object logAround(ProceedingJoinPoint pjp) throws Throwable {
         logger.info("The method {}() begins with {}", pjp.getSignature().getName(), Arrays.toString(pjp.getArgs()));
 
         try {
@@ -59,6 +49,11 @@ public class CalculatorLoggingAspect implements Ordered {
             logger.error("Illegal argument {} in {}()", Arrays.toString(pjp.getArgs()), pjp.getSignature().getName());
             throw e;
         }
+    }
+
+    @Before("cc.ewqr.spring.playground.calculator.CalculatorPointCuts.unitLoggingOperation()")
+    private void unitLog(JoinPoint joinPoint) {
+        logger.info("ZzzzzzzZ");
     }
 
     @Override
